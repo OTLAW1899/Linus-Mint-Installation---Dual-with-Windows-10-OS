@@ -1,9 +1,5 @@
 Linux Mint on an External HDD - Dual-Boot with Windows 10
 
-Author: 
-Olatunji Lawal
-Cybersecurity and GRC Analyst
-Published: September 16, 2026
 
 Overview:
 
@@ -122,4 +118,9 @@ Tools Used:
 - [Boot-Repair](https://) (via `yannubuntu/boot-repair` PPA)
 - Windows 10 Media Creation Tool / recovery environment (`bootrec`)
 
+
+Author: 
+Olatunji Lawal
+Cybersecurity and GRC Analyst
+Published: September 16, 2026
 
