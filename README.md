@@ -1,19 +1,19 @@
 Linux Mint on an External HDD - Dual-Boot with Windows 10
 
-Overview
+Overview:
 
 This repo documents installing Linux Mint 22.3 onto an external USB HDD (Toshiba, USB 3.0), while keeping the existing Windows 10 installation intact on the internal drive (Samsung NVMe/SSD) of a Lenovo ThinkPad T460s.
 
 The goal: run Mint entirely off the external drive, dual-boot with Windows, and be able to unplug the external drive and boot straight into Windows when Mint isn't needed.
 
-Setup
+Setup:
 
 - Laptop: Lenovo ThinkPad T460s
 - Internal drive: 256GB, Windows 10
 - External drive: Toshiba External HDD, USB 3.0 - Linux Mint 22.3 installed here
 - Firmware mode: Legacy/CSM enabled (`UEFI/Legacy Boot Priority: Legacy First`, `CSM Support: Yes`)
 
-Initial Installation Process
+Initial Installation Process:
 
 1. Created a bootable Mint USB using [balenaEtcher](https://etcher.) on another PC, writing the Linux Mint 22.3 ISO to a spare USB flash drive.
 2. Connected the target Toshiba External HDD to the ThinkPad T460s via USB 3.0.
@@ -26,7 +26,7 @@ Initial Installation Process
 
 This is also where the root of Issues #2 and #3 traces back to: if the "boot loader installation" device wasn't explicitly changed to the external Toshiba drive during this step, GRUB installs onto the internal SSD by default setting up the exact dependency problem described below.
                                                                       
-Issues encountered
+Issues encountered:
 
 Issue #1: System defaulted to booting Mint instead of Windows
 
@@ -48,7 +48,7 @@ grub rescue>
 
 Root cause: During Mint's install, GRUB had been installed to the internal Samsung drive, not the external one. With the external drive absent, GRUB (still triggered by the internal drive's boot sector) couldn't find its root filesystem which lived only on the now-unplugged Toshiba drive.
 
-Fix attempt: Boot-Repair
+Fix attempt: Boot-Repair:
 
 Booted into Mint (external drive plugged in) and used the [Boot-Repair](https://) tool:
 
@@ -104,15 +104,17 @@ Toshiba unplugged, boot - `grub rescue>` -internal drive still has stale GRUB (f
 
 
 
-Lessons Learned
+Lessons Learned:
 
 - Always check where GRUB installs during setup. Most installers default to installing the bootloader on the "first" or system disk rather than the disk actually hosting the OS this is exactly what caused the internal/external split issue here.
 - Legacy/CSM BIOS modes can override UEFI boot order settings, making the listed boot priority unreliable as the sole method of control. A one-time boot menu (F12) is more predictable in mixed Legacy/UEFI setups.
 - Boot-Repair fixes the target OS's bootloader, not other drives' leftover boot code. If an install went wrong on one disk, expect to also need OS-native tools (like Windows' `bootrec`) to clean up the other disk.
 - A full power-off (not just restart) can sometimes clear stale UEFI boot-entry caching - this briefly made Windows boot manager respond again, which was a useful (if temporary and slightly misleading) diagnostic signal.
 
-Tools Used
+Tools Used: 
 
 - [Linux Mint 22.3](https://linuxmint.com/)
 - [Boot-Repair](https://) (via `yannubuntu/boot-repair` PPA)
 - Windows 10 Media Creation Tool / recovery environment (`bootrec`)
+
+
