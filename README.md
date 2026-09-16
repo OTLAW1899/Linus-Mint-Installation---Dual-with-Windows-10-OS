@@ -25,8 +25,8 @@ Initial Installation Process
 8. Completed the installation, removed the USB installer, and rebooted.
 
 This is also where the root of Issues #2 and #3 traces back to: if the "boot loader installation" device wasn't explicitly changed to the external Toshiba drive during this step, GRUB installs onto the internal SSD by default setting up the exact dependency problem described below.
-                                                                       
-                                                                     Issues encountered
+                                                                      
+Issues encountered
 
 Issue #1: System defaulted to booting Mint instead of Windows
 
@@ -98,16 +98,9 @@ While troubleshooting, briefly considered upgrading the Windows side from 10 to 
 
 Current Status
 
-| | |
-|---|---|
-| |  
-| |  
-Scenario
-Result
-Toshiba plugged in, boot
-Dual-boot menu (Windows + Mint) works 
-Toshiba unplugged, boot 
-`grub rescue>` -internal drive still has stale GRUB (fix pending) 
+Scenario & Result
+Toshiba plugged in, boot - Dual-boot menu (Windows + Mint) works 
+Toshiba unplugged, boot - `grub rescue>` -internal drive still has stale GRUB (fix pending) 
 
 
 
