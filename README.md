@@ -3,7 +3,7 @@ Linux Mint on an External HDD - Dual-Boot with Windows 10
 
 Overview:
 
-This repo documents installing Linux Mint 22.3 onto an external USB HDD (Toshiba, USB 3.0), while keeping the existing Windows 10 installation intact on the internal drive (Samsung NVMe/SSD) of a Lenovo ThinkPad T460s.
+This repo documents installing Linux Mint 22.3 onto an external USB HDD (Toshiba, USB 3.0), while keeping the existing Windows 10 installation intact on the internal drive (Samsung NVMe/SSD) of a Lenovo ThinkPad.
 
 The goal: run Mint entirely off the external drive, dual-boot with Windows, and be able to unplug the external drive and boot straight into Windows when Mint isn't needed.
 
@@ -122,6 +122,8 @@ Tools Used:
 Author: 
 
 Olatunji Lawal
+
 Cybersecurity and GRC Analyst
+
 Published: September 16, 2026
 
